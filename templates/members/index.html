@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Members</h1>
+
+<p><a href="/members/add">Add member</a></p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Premium</th>
+    </tr>
+
+    {% for member in members %}
+    <tr>
+        <td><a href="/members/{{member.id}}">{{member.last_name}}, {{member.first_name}}</a></td>
+        <td>{{member.premium}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

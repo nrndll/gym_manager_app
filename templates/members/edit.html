@@ -1,0 +1,28 @@
+{% block content %}
+
+<form action="/members/{{member.id}}" method="POST">
+
+    <div>
+        <label for="first_name">Enter first name:</label>
+        <input type="text" name="first_name" id="first_name" value="{{member.first_name}}">
+    </div>
+
+    <div>
+        <label for="last_name">Enter last name:</label>
+        <input type="text" name="last_name" id="last_name" value="{{member.last_name}}">
+    </div>
+
+    <div>
+        <select name="premium" id="premium">
+            <option value="True" {% if member.premium %} selected {% endif %}>True</option>
+            <option value="False" {% if member.premium == False %} selected {% endif %}>False</option>
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Enter</button>
+    </div>
+
+</form>
+
+{% endblock %}

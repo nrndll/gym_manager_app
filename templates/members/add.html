@@ -1,0 +1,29 @@
+{% block content %}
+
+<form action="/members" method="POST">
+
+    <div>
+        <label for="first_name">Enter first name:</label>
+        <input type="text" name="first_name" id="first_name">
+    </div>
+
+    <div>
+        <label for="last_name">Enter last name:</label>
+        <input type="text" name="last_name" id="last_name">
+    </div>
+
+    <div>
+        <select name="premium" id="premium">
+            <option value="" disabled selected></option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Enter</button>
+    </div>
+
+</form>
+
+{% endblock %}
