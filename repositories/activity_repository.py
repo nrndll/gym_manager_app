@@ -34,3 +34,8 @@ def delete(id):
     sql = "DELETE FROM activities WHERE id = %s"
     value = [id]
     run_sql(sql, value)
+
+def edit(activity):
+    sql = "UPDATE activities SET (description, capacity, premium) = (%s, %s, %s) WHERE id = %s"
+    values = [activity.description, activity.capacity, activity.premium, activity.id]
+    run_sql(sql, values)

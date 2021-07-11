@@ -1,0 +1,29 @@
+{% block content %}
+
+<form action="/activities" method="POST">
+
+    <div>
+        <label for="description">Enter description:</label>
+        <input type="text" name="description" id="description">
+    </div>
+
+    <div>
+        <label for="capacity">Enter capacity:</label>
+        <input type="number" min="0" name="capacity" id="capacity">
+    </div>
+
+    <div>
+        <select name="premium" id="premium">
+            <option value="" disabled selected></option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Enter</button>
+    </div>
+
+</form>
+
+{% endblock %}

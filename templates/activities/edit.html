@@ -1,0 +1,28 @@
+{% block content %}
+
+<form action="/activities/{{activity.id}}" method="POST">
+
+    <div>
+        <label for="description">Enter description:</label>
+        <input type="text" name="description" id="description" value="{{activity.description}}">
+    </div>
+
+    <div>
+        <label for="capacity">Enter capacity:</label>
+        <input type="number" min="0" name="capacity" id="capacity" value="{{activity.capacity}}">
+    </div>
+
+    <div>
+        <select name="premium" id="premium">
+            <option value="True" {% if activity.premium %} selected {% endif %}>True</option>
+            <option value="False" {% if activity.premium == False %} selected {% endif %}>False</option>
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Enter</button>
+    </div>
+
+</form>
+
+{% endblock %}
