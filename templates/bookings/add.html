@@ -1,0 +1,29 @@
+{% block content %}
+
+<form action="/bookings" method="POST">
+
+    <div>
+        <label for="member">Select member:</label>
+        <select name="member_id" id="member">
+            {% for member in members %}
+            <option value="{{member.id}}">{{member.last_name}}, {{member.first_name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="activity">Select activity:</label>
+        <select name="activity_id" id="activity">
+            {% for activity in activities %}
+            <option value="{{activity.id}}">{{activity.description}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Enter</button>
+    </div>
+
+</form>
+
+{% endblock %}

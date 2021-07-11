@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Booking number: {{booking.id}}</p>
+<p>Member: <a href="/members/{{booking.member.id}}">{{booking.member.first_name}} {{booking.member.last_name}}</a></p>
+<p>Activity: <a href="/activities/{{booking.activity.id}}">{{booking.activity.description}}</a></p>
+
+<form action="/bookings/{{booking.id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+</form>
+
+
+{% endblock %}

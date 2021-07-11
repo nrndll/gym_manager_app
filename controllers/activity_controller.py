@@ -5,13 +5,13 @@ import repositories.activity_repository as activity_repository
 activities_blueprint = Blueprint("activities", __name__)
 
 @activities_blueprint.route("/activities")
-def actvities():
+def view_all():
     activities = activity_repository.select_all()
     return render_template("activities/index.html", activities=activities)
 
 
 @activities_blueprint.route("/activities/<id>")
-def activity(id):
+def view(id):
     activity = activity_repository.select(id)
     return render_template("activities/view.html", activity=activity)
 

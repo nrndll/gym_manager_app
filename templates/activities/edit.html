@@ -13,6 +13,7 @@
     </div>
 
     <div>
+        <label for="premium">Requires Premium membership:</label>
         <select name="premium" id="premium">
             <option value="True" {% if activity.premium %} selected {% endif %}>True</option>
             <option value="False" {% if activity.premium == False %} selected {% endif %}>False</option>
