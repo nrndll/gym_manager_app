@@ -14,5 +14,8 @@
 
 <h3>Booked activities</h3>
 
+{% for member in members %}
+<p>{{member.first_name}} {{member.last_name}}</p>
+{% endfor %}
 
 {% endblock %}

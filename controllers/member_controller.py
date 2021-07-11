@@ -12,7 +12,8 @@ def view_all():
 @members_blueprint.route("/members/<id>")
 def view(id):
     member = member_repository.select(id)
-    return render_template("members/view.html", member=member)
+    activities = member_repository.activities(member)
+    return render_template("members/view.html", member=member, activities=activities)
 
 @members_blueprint.route("/members/add")
 def add():

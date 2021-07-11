@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.member import Member
+from models.activity import Activity
 
 def add(member):
     sql = "INSERT INTO members (first_name, last_name, premium) VALUES (%s, %s, %s) RETURNING id"
@@ -40,3 +41,13 @@ def edit(member):
     sql = "UPDATE members SET (first_name, last_name, premium) = (%s, %s, %s) WHERE id = %s"
     values = [member.first_name, member.last_name, member.premium, member.id]
     run_sql(sql, values)
+
+def activities(member):
+    activities = []
+    sql = "SELECT activities.* FROM activities INNER JOIN bookings ON bookings.activity_id = activities.id WHERE bookings.member_id = %s"
+    values = [member.id]
+    results = run_sql(sql, values)
+    for row in results:
+        activity = Activity(row["description"], row["capacity"], row["premium"], row["id"])
+        activities.append(activity)
+    return activities

@@ -13,5 +13,9 @@
 
 <h3>Booked activities</h3>
 
+{% for activity in activities %}
+<p>{{activity.description}}</p>
+{% endfor %}
+
 
 {% endblock %}

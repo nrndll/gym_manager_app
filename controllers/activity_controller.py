@@ -13,7 +13,8 @@ def view_all():
 @activities_blueprint.route("/activities/<id>")
 def view(id):
     activity = activity_repository.select(id)
-    return render_template("activities/view.html", activity=activity)
+    members = activity_repository.members(activity)
+    return render_template("activities/view.html", activity=activity, members=members)
 
 
 @activities_blueprint.route("/activities/add")
