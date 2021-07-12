@@ -51,8 +51,14 @@ def members(activity):
         members.append(member)
     return members
 
-# def capacity(activity):
-#     sql = "SELECT COUNT(*) FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
-#     value = [activity.id]
-#     result = run_sql(sql, value)
-#     return result
+def capacity(activity):
+    sql = "SELECT COUNT(*) FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
+    value = [activity.id]
+    result = run_sql(sql, value)
+    return result
+
+def at_capacity(activity):
+    if activity.capacity > capacity(activity):
+        return False
+    else:
+        return True
