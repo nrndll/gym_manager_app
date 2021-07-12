@@ -15,9 +15,26 @@
 
 <h3>Booked activities</h3>
 
-{% for activity in activities %}
-<p>{{activity.description}}</p>
-{% endfor %}
+    <table>
+        <tr>
+            <th>Activity ID</th>
+            <th>Description</th>
+            <th>Capacity</th>
+            <th>Premium</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+    
+        {% for activity in activities %}
+        <tr>
+            <td><a href="/activities/{{activity.id}}">{{activity.id}}</a></td>
+            <td>{{activity.description}}</td>
+            <td>{{activity.capacity}}</td>
+            <td>{{activity.premium}}</td>
+            <td>{{activity.date}}</td>
+            <td>{{activity.time}}</td>
+        </tr>
+        {% endfor %}
 
 </section>
 

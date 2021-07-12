@@ -10,13 +10,15 @@
 
     <table>
         <tr>
+            <th>Member ID</th>
             <th>Name</th>
             <th>Premium</th>
         </tr>
 
         {% for member in members %}
         <tr>
-            <td><a href="/members/{{member.id}}">{{member.last_name}}, {{member.first_name}}</a></td>
+            <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
+            <td>{{member.last_name}}, {{member.first_name}}</td>
             <td>{{member.premium}}</td>
         </tr>
         {% endfor %}

@@ -10,6 +10,7 @@
 
     <table>
         <tr>
+            <th>Activity ID</th>
             <th>Description</th>
             <th>Capacity</th>
             <th>Premium</th>
@@ -19,7 +20,8 @@
 
         {% for activity in activities %}
         <tr>
-            <td><a href="/activities/{{activity.id}}">{{activity.description}}</a></td>
+            <td><a href="/activities/{{activity.id}}">{{activity.id}}</a></td>
+            <td>{{activity.description}}</td>
             <td>{{activity.capacity}}</td>
             <td>{{activity.premium}}</td>
             <td>{{activity.date}}</td>
