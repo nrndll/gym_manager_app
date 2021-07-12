@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<section class="view">
+
 <p>Activity: {{activity.description}}</p>
 <p>Maximum capacity: {{activity.capacity}}</p>
 <p>Premium activity: {{activity.premium}}</p>
@@ -19,5 +21,7 @@
 {% for member in members %}
 <p>{{member.first_name}} {{member.last_name}}</p>
 {% endfor %}
+
+</section>
 
 {% endblock %}

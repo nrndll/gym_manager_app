@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<section class="view">
+
 <p>Booking number: {{booking.id}}</p>
 <p>Member: <a href="/members/{{booking.member.id}}">{{booking.member.first_name}} {{booking.member.last_name}}</a></p>
 <p>Activity: <a href="/activities/{{booking.activity.id}}">{{booking.activity.description}}</a></p>
@@ -10,5 +12,6 @@
     <button type="submit">Delete</button>
 </form>
 
+</section>
 
 {% endblock %}

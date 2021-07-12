@@ -5,13 +5,13 @@ import repositories.member_repository as member_repository
 import repositories.activity_repository as activity_repository
 import repositories.booking_repository as booking_repository
 
-# member_repository.delete_all()
+member_repository.delete_all()
 # member_repository.delete(1)
 
-# activity_repository.delete_all()
+activity_repository.delete_all()
 # activity_repository.delete(1)
 
-# booking_repository.delete_all()
+booking_repository.delete_all()
 # booking_repository.delete(1)
 
 member_1 = Member("Nathan", "Rendall", True)
@@ -49,6 +49,6 @@ booking_repository.add(booking_3)
 booking_4 = Booking(member_2, activity_4)
 booking_repository.add(booking_4)
 
-print(activity_repository.capacity(activity_3))
-activity_repository.space_for_booking(activity_3)
+# print(activity_repository.capacity(activity_3))
+# activity_repository.space_for_booking(activity_3)
 

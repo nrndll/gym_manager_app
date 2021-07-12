@@ -2,32 +2,36 @@
 
 {% block content %}
 
-<h1>Bookings</h1>
+<section class="index">
 
-<p><a href="/bookings/add">Add booking</a></p>
+    <h1>Bookings</h1>
 
-<table>
-    <tr>
-        <th>Booking number</th>
-        <th>Member</th>
-        <th>Activity</th>
-        <th>Premium Activity</th>
-        <th>Date</th>
-        <th>Time</th>
-    </tr>
+    <p><a href="/bookings/add">Add booking</a></p>
 
-    {% for booking in bookings %}
-    <tr>
-        <td><a href="/bookings/{{booking.id}}">{{booking.id}}</a></td>
-        <td>{{booking.member.last_name}}, {{booking.member.first_name}}</td>
-        <td>{{booking.activity.description}}</td>
-        <td>{{booking.activity.premium}}</td>
-        <td>{{booking.activity.date}}</td>
-        <td>{{booking.activity.time}}</td>
+    <table>
+        <tr>
+            <th>Booking number</th>
+            <th>Member</th>
+            <th>Activity</th>
+            <th>Premium Activity</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
 
-    </tr>
-    {% endfor %}
+        {% for booking in bookings %}
+        <tr>
+            <td><a href="/bookings/{{booking.id}}">{{booking.id}}</a></td>
+            <td>{{booking.member.last_name}}, {{booking.member.first_name}}</td>
+            <td>{{booking.activity.description}}</td>
+            <td>{{booking.activity.premium}}</td>
+            <td>{{booking.activity.date}}</td>
+            <td>{{booking.activity.time}}</td>
 
-</table>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</section>
 
 {% endblock %}
