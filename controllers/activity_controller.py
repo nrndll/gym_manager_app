@@ -27,7 +27,9 @@ def create():
     description = request.form["description"]
     capacity = request.form["capacity"]
     premium = request.form["premium"]
-    activity = Activity(description, capacity, premium)
+    date = request.form["date"]
+    time = request.form["time"]
+    activity = Activity(description, capacity, premium, date, time)
     activity_repository.add(activity)
     return redirect("/activities")
 
@@ -43,7 +45,9 @@ def update(id):
     description = request.form["description"]
     capacity = request.form["capacity"]
     premium = request.form["premium"]
-    activity = Activity(description, capacity, premium, id)
+    date = request.form["date"]
+    time = request.form["time"]
+    activity = Activity(description, capacity, premium, date, time, id)
     activity_repository.edit(activity)
     return redirect("/activities")
 

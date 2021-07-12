@@ -11,6 +11,8 @@
         <th>Description</th>
         <th>Capacity</th>
         <th>Premium</th>
+        <th>Date</th>
+        <th>Time</th>
     </tr>
 
     {% for activity in activities %}
@@ -18,6 +20,8 @@
         <td><a href="/activities/{{activity.id}}">{{activity.description}}</a></td>
         <td>{{activity.capacity}}</td>
         <td>{{activity.premium}}</td>
+        <td>{{activity.date}}</td>
+        <td>{{activity.time}}</td>
     </tr>
     {% endfor %}
 

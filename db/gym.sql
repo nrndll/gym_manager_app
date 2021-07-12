@@ -13,7 +13,9 @@ CREATE TABLE activities (
     id SERIAL PRIMARY KEY,
     description VARCHAR(255),
     capacity INT,
-    premium BOOLEAN
+    premium BOOLEAN,
+    date VARCHAR(255),
+    time VARCHAR(255)
 );
 
 CREATE TABLE bookings (

@@ -3,8 +3,8 @@ from models.activity import Activity
 from models.member import Member
 
 def add(activity):
-    sql = "INSERT INTO activities (description, capacity, premium) VALUES (%s, %s, %s) RETURNING id"
-    values = [activity.description, activity.capacity, activity.premium]
+    sql = "INSERT INTO activities (description, capacity, premium, date, time) VALUES (%s, %s, %s, %s, %s) RETURNING id"
+    values = [activity.description, activity.capacity, activity.premium, activity.date, activity.time]
     result = run_sql(sql, values)
     id = result[0]["id"]
     activity.id = id
@@ -15,7 +15,7 @@ def select_all():
     sql = "SELECT * FROM activities"
     results = run_sql(sql)
     for row in results:
-        activity = Activity(row["description"], row["capacity"], row["premium"], row["id"])
+        activity = Activity(row["description"], row["capacity"], row["premium"], row["date"], row["time"], row["id"])
         activities.append(activity)
     return activities
 
@@ -24,7 +24,7 @@ def select(id):
     sql = "SELECT * FROM activities WHERE id = %s"
     value = [id]
     result = run_sql(sql, value)[0]
-    activity = Activity(result["description"], result["capacity"], result["premium"], result["id"])
+    activity = Activity(result["description"], result["capacity"], result["premium"], result["date"], result["time"], result["id"])
     return activity
 
 def delete_all():
@@ -37,16 +37,22 @@ def delete(id):
     run_sql(sql, value)
 
 def edit(activity):
-    sql = "UPDATE activities SET (description, capacity, premium) = (%s, %s, %s) WHERE id = %s"
-    values = [activity.description, activity.capacity, activity.premium, activity.id]
+    sql = "UPDATE activities SET (description, capacity, premium, date, time) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [activity.description, activity.capacity, activity.premium, activity.date, activity.time, activity.id]
     run_sql(sql, values)
 
 def members(activity):
     members = []
     sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
-    values = [activity.id]
-    results = run_sql(sql, values)
+    value = [activity.id]
+    results = run_sql(sql, value)
     for row in results:
         member = Member(row["first_name"], row["last_name"], row["premium"], row["id"])
         members.append(member)
     return members
+
+# def capacity(activity):
+#     sql = "SELECT COUNT(*) FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
+#     value = [activity.id]
+#     result = run_sql(sql, value)
+#     return result

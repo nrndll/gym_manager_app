@@ -12,6 +12,8 @@
         <th>Member</th>
         <th>Activity</th>
         <th>Premium Activity</th>
+        <th>Date</th>
+        <th>Time</th>
     </tr>
 
     {% for booking in bookings %}
@@ -20,6 +22,9 @@
         <td>{{booking.member.last_name}}, {{booking.member.first_name}}</td>
         <td>{{booking.activity.description}}</td>
         <td>{{booking.activity.premium}}</td>
+        <td>{{booking.activity.date}}</td>
+        <td>{{booking.activity.time}}</td>
+
     </tr>
     {% endfor %}
 

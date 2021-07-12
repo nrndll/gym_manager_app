@@ -13,11 +13,21 @@
     </div>
 
     <div>
-        <label for="premium">Requires Premium membership:</label>
+        <label for="premium">Premium activity:</label>
         <select name="premium" id="premium">
             <option value="True" {% if activity.premium %} selected {% endif %}>True</option>
             <option value="False" {% if activity.premium == False %} selected {% endif %}>False</option>
         </select>
+    </div>
+
+    <div>
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" value="{{activity.date}}">
+    </div>
+    
+    <div>
+        <label for="time">Time:</label>
+        <input type="time" name="time" id="time" value="{{activity.time}}">
     </div>
 
     <div>
