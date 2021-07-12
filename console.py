@@ -50,4 +50,5 @@ booking_4 = Booking(member_2, activity_4)
 booking_repository.add(booking_4)
 
 print(activity_repository.capacity(activity_3))
+activity_repository.space_for_booking(activity_3)
 

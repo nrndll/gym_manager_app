@@ -2,6 +2,8 @@ from db.run_sql import run_sql
 from models.activity import Activity
 from models.member import Member
 
+import pdb
+
 def add(activity):
     sql = "INSERT INTO activities (description, capacity, premium, date, time) VALUES (%s, %s, %s, %s, %s) RETURNING id"
     values = [activity.description, activity.capacity, activity.premium, activity.date, activity.time]
@@ -51,14 +53,31 @@ def members(activity):
         members.append(member)
     return members
 
+
+
+
+
 def capacity(activity):
     sql = "SELECT COUNT(*) FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
     value = [activity.id]
     result = run_sql(sql, value)
     return result
 
-def at_capacity(activity):
-    if activity.capacity > capacity(activity):
-        return False
-    else:
+def space_for_booking(activity):
+    current_number_bookings = capacity(activity)
+    if int(activity.capacity) > int(current_number_bookings[0][0]):
         return True
+    else:
+        return False
+
+
+def non_premium_activities():
+    activities = []
+    sql = "SELECT * FROM activities WHERE premium = %s"
+    value = [False]
+    results = run_sql(sql, value)
+    for row in results:
+        activity = Activity(row["description"], row["capacity"],
+                            row["premium"], row["date"], row["time"], row["id"])
+        activities.append(activity)
+    return activities

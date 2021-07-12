@@ -1,3 +1,4 @@
+from models.activity import Activity
 from flask import Flask, Blueprint, render_template, redirect, request
 from models.booking import Booking
 import repositories.booking_repository as booking_repository
