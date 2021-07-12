@@ -4,12 +4,15 @@ import repositories.member_repository as member_repository
 import repositories.activity_repository as activity_repository
 
 def add(booking):
-    sql = "INSERT INTO bookings (member_id, activity_id) VALUES (%s, %s) RETURNING id"
-    values = [booking.member.id, booking.activity.id]
-    result = run_sql(sql, values)
-    id = result[0]["id"]
-    booking.id = id
-    return booking
+    if activity_repository.space_for_booking(booking.activity):
+        sql = "INSERT INTO bookings (member_id, activity_id) VALUES (%s, %s) RETURNING id"
+        values = [booking.member.id, booking.activity.id]
+        result = run_sql(sql, values)
+        id = result[0]["id"]
+        booking.id = id
+        return booking
+    else:
+        return None
 
 def select_all():
     bookings = []
