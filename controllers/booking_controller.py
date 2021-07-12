@@ -30,8 +30,10 @@ def create():
     member = member_repository.select(member_id)
     activity = activity_repository.select(activity_id)
     booking = Booking(member, activity)
-    booking_repository.add(booking)
-    return redirect("/bookings")
+    if booking_repository.add(booking) != None:
+        return redirect("/bookings")
+    else:
+        return render_template("/bookings/error.html")
 
 @bookings_blueprint.route("/bookings/<id>/delete", methods=["POST"])
 def delete(id):

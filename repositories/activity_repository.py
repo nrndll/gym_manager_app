@@ -53,10 +53,6 @@ def members(activity):
         members.append(member)
     return members
 
-
-
-
-
 def capacity(activity):
     sql = "SELECT COUNT(*) FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
     value = [activity.id]
