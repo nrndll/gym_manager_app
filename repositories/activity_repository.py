@@ -2,8 +2,6 @@ from db.run_sql import run_sql
 from models.activity import Activity
 from models.member import Member
 
-import pdb
-
 def add(activity):
     sql = "INSERT INTO activities (description, capacity, premium, date, time) VALUES (%s, %s, %s, %s, %s) RETURNING id"
     values = [activity.description, activity.capacity, activity.premium, activity.date, activity.time]
