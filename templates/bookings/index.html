@@ -9,29 +9,29 @@
     <p><a href="/bookings/add">Add booking</a></p>
 
     <table>
-        <tr>
-            <th>Booking number</th>
-            <th>Member</th>
-            <th>Activity</th>
-            <th>Premium Activity</th>
-            <th>Date</th>
-            <th>Time</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Booking number</th>
+                <th>Member</th>
+                <th>Activity</th>
+                <th>Premium Activity</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
 
         {% for booking in bookings %}
-        <tr>
-            <td><a href="/bookings/{{booking.id}}">{{booking.id}}</a></td>
-            <td><a href="/members/{{booking.member.id}}">{{booking.member.last_name}}, {{booking.member.first_name}}</a></td>
-            <td><a href="/activities/{{booking.activity.id}}">{{booking.activity.description}}</a></td>
-            <td>{{booking.activity.premium}}</td>
-            <td>{{booking.activity.date}}</td>
-            <td>{{booking.activity.time}}</td>
-
-        </tr>
+        <tbody>
+            <tr>
+                <td><a href="/bookings/{{booking.id}}">{{booking.id}}</a></td>
+                <td><a href="/members/{{booking.member.id}}">{{booking.member.last_name}}, {{booking.member.first_name}}</a></td>
+                <td><a href="/activities/{{booking.activity.id}}">{{booking.activity.description}}</a></td>
+                <td>{{booking.activity.premium}}</td>
+                <td>{{booking.activity.date}}</td>
+                <td>{{booking.activity.time}}</td>
+            </tr>
+        </tbody>
         {% endfor %}
-
     </table>
-
 </section>
-
 {% endblock %}

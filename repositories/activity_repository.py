@@ -3,12 +3,15 @@ from models.activity import Activity
 from models.member import Member
 
 def add(activity):
-    sql = "INSERT INTO activities (description, capacity, premium, date, time) VALUES (%s, %s, %s, %s, %s) RETURNING id"
-    values = [activity.description, activity.capacity, activity.premium, activity.date, activity.time]
-    result = run_sql(sql, values)
-    id = result[0]["id"]
-    activity.id = id
-    return activity
+    if already_activity(activity) == False:
+        sql = "INSERT INTO activities (description, capacity, premium, date, time) VALUES (%s, %s, %s, %s, %s) RETURNING id"
+        values = [activity.description, activity.capacity, activity.premium, activity.date, activity.time]
+        result = run_sql(sql, values)
+        id = result[0]["id"]
+        activity.id = id
+        return activity
+    else:
+        return None
 
 def select_all():
     activities = []
@@ -69,12 +72,10 @@ def space_for_booking(activity):
     else:
         return False
 
-# def non_premium_activities():
-#     activities = []
-#     sql = "SELECT * FROM activities WHERE premium = %s"
-#     value = [False]
-#     results = run_sql(sql, value)
-#     for row in results:
-#         activity = Activity(row["description"], row["capacity"], row["premium"], row["date"], row["time"], row["id"])
-#         activities.append(activity)
-#     return activities
+def already_activity(activity):
+    results = select_all()
+    activity_exists = False
+    for result in results:
+        if result.description == activity.description and result.date == activity.date and result.time == activity.time:
+            activity_exists = True
+    return activity_exists

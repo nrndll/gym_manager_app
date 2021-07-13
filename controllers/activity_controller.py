@@ -31,8 +31,10 @@ def create():
     date = request.form["date"]
     time = request.form["time"]
     activity = Activity(description, capacity, premium, date, time)
-    activity_repository.add(activity)
-    return redirect("/activities")
+    if activity_repository.add(activity) != None:
+        return redirect("/activities")
+    else:
+        return render_template("/activities/error.html")
 
 
 @activities_blueprint.route("/activities/<id>/edit")

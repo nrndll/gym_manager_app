@@ -9,22 +9,24 @@
     <p><a href="/members/add">Add member</a></p>
 
     <table>
-        <tr>
-            <th>Member ID</th>
-            <th>Name</th>
-            <th>Premium</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Member ID</th>
+                <th>Name</th>
+                <th>Premium</th>
+            </tr>
+        </thead>
 
         {% for member in members %}
-        <tr>
-            <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
-            <td>{{member.last_name}}, {{member.first_name}}</td>
-            <td>{{member.premium}}</td>
-        </tr>
+        <tbody>
+            <tr>
+                <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
+                <td>{{member.last_name}}, {{member.first_name}}</td>
+                <td>{{member.premium}}</td>
+            </tr>
+        </tbody>
         {% endfor %}
-
     </table>
-
 </section>
 
 {% endblock %}
