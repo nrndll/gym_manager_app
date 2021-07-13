@@ -25,8 +25,10 @@ def create():
     last_name = request.form["last_name"]
     premium = request.form["premium"]
     member = Member(first_name, last_name, premium)
-    member_repository.add(member)
-    return redirect("/members")
+    if member_repository.add(member) != None:
+        return redirect("/members")
+    else:
+        return render_template("/members/error.html")
 
 @members_blueprint.route("/members/<id>/edit")
 def edit(id):

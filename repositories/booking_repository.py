@@ -3,17 +3,6 @@ from models.booking import Booking
 import repositories.member_repository as member_repository
 import repositories.activity_repository as activity_repository
 
-# def add(booking):
-#     if activity_repository.space_for_booking(booking.activity):
-#         sql = "INSERT INTO bookings (member_id, activity_id) VALUES (%s, %s) RETURNING id"
-#         values = [booking.member.id, booking.activity.id]
-#         result = run_sql(sql, values)
-#         id = result[0]["id"]
-#         booking.id = id
-#         return booking
-#     else:
-#         return None
-
 def add(booking):
     if booking.member.premium:
         if activity_repository.space_for_booking(booking.activity):

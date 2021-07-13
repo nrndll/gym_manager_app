@@ -21,8 +21,8 @@
         {% for booking in bookings %}
         <tr>
             <td><a href="/bookings/{{booking.id}}">{{booking.id}}</a></td>
-            <td>{{booking.member.last_name}}, {{booking.member.first_name}}</td>
-            <td>{{booking.activity.description}}</td>
+            <td><a href="/members/{{booking.member.id}}">{{booking.member.last_name}}, {{booking.member.first_name}}</a></td>
+            <td><a href="/activities/{{booking.activity.id}}">{{booking.activity.description}}</a></td>
             <td>{{booking.activity.premium}}</td>
             <td>{{booking.activity.date}}</td>
             <td>{{booking.activity.time}}</td>

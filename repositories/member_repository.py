@@ -1,14 +1,18 @@
 from db.run_sql import run_sql
 from models.member import Member
 from models.activity import Activity
+import pdb
 
 def add(member):
-    sql = "INSERT INTO members (first_name, last_name, premium) VALUES (%s, %s, %s) RETURNING id"
-    values = [member.first_name, member.last_name, member.premium]
-    result = run_sql(sql, values)
-    id = result[0]["id"]
-    member.id = id
-    return member
+    if already_member(member) == False:
+        sql = "INSERT INTO members (first_name, last_name, premium) VALUES (%s, %s, %s) RETURNING id"
+        values = [member.first_name, member.last_name, member.premium]
+        result = run_sql(sql, values)
+        id = result[0]["id"]
+        member.id = id
+        return member
+    else:
+        return None
 
 def select_all():
     members=[]
@@ -51,3 +55,11 @@ def activities(member):
         activity = Activity(row["description"], row["capacity"], row["premium"], row["date"], row["time"], row["id"])
         activities.append(activity)
     return activities
+
+def already_member(member):
+    results = select_all()
+    is_member = False
+    for result in results:
+        if result.first_name == member.first_name and result.last_name == member.last_name:
+            is_member = True
+    return is_member
