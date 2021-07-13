@@ -1,0 +1,33 @@
+.form {
+    border: solid blanchedalmond;
+    width: fit-content;
+    background-color: black;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;;
+}
+
+.form div {
+    border: solid thin blanchedalmond;
+}
+
+.label {
+    color: blanchedalmond;
+    letter-spacing: 0.5vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 1vh;
+}
+
+.input {
+    margin-right: 2vh;
+}
+
+.select {
+    margin: 2vh;
+}
+
+.button {
+    margin: 2vh;
+}
