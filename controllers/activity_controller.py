@@ -14,7 +14,7 @@ def view_all():
 def view(id):
     activity = activity_repository.select(id)
     members = activity_repository.members(activity)
-    places_available = activity.capacity - (activity_repository.total_bookings(activity))
+    places_available = activity_repository.places_available(activity)
     return render_template("activities/view.html", activity=activity, members=members, places_available=places_available)
 
 
