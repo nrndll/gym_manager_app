@@ -28,15 +28,3 @@
 .index table tbody:nth-child(even) {
   background-color: grey;
 }
-
-.index a {
-    text-decoration: none;
-    color: blanchedalmond;
-    border: solid blanchedalmond;
-    margin: 3vh;
-    padding: 1vh;
-}
-
-.index a:hover {
-    color: black;
-}

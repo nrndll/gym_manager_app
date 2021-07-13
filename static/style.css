@@ -34,8 +34,47 @@ body ul li a {
     text-transform: uppercase;
     color: blanchedalmond;
     border: solid blanchedalmond;
+    background-color: black;
 }
 
 body ul li a:hover {
+    background-color: darkgrey;
+}
+
+.index p {
+    display: flex;
+    justify-content: center;
+}
+
+.index p a {
+    text-decoration: none;
+    color: blanchedalmond;
+    border: solid blanchedalmond;
     background-color: black;
+    margin: 5vh 10vh;
+    width: fit-content;
+    padding: 1vh 2vh;
+}
+
+.index p a:hover {
+    background-color: darkgrey;
+}
+
+.index table a {
+    text-decoration: underline;
+    color: blanchedalmond;
+}
+
+.index table a:hover {
+    color: black;
+}
+
+#home ul li a {   
+    margin: 10vh;
+    width: fit-content;
+    padding: 1vh 2vh;
+}
+
+#home h2 {
+    margin-bottom: 10vh;
 }
