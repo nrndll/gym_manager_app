@@ -14,7 +14,8 @@ def view_all():
 def view(id):
     activity = activity_repository.select(id)
     members = activity_repository.members(activity)
-    return render_template("activities/view.html", activity=activity, members=members)
+    places_available = activity.capacity - (activity_repository.total_bookings(activity))
+    return render_template("activities/view.html", activity=activity, members=members, places_available=places_available)
 
 
 @activities_blueprint.route("/activities/add")

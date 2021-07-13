@@ -53,7 +53,7 @@ def members(activity):
         members.append(member)
     return members
 
-def capacity(activity):
+def total_bookings(activity):
     sql = "SELECT COUNT(*) FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
     value = [activity.id]
     result = run_sql(sql, value)
@@ -61,7 +61,7 @@ def capacity(activity):
 
 def space_for_booking(activity):
     # pdb.set_trace()
-    current_number_bookings = capacity(activity)
+    current_number_bookings = total_bookings(activity)
     if activity.capacity > current_number_bookings:
         return True
     else:
