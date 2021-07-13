@@ -4,6 +4,8 @@
 
 <form class="input_form" action="/bookings" method="POST">
 
+    <h2>Add Booking</h2>
+
     <div>
         <label for="member">Select member:</label>
         <select name="member_id" id="member">
@@ -17,7 +19,7 @@
         <label for="activity">Select activity:</label>
         <select name="activity_id" id="activity">
             {% for activity in activities %}
-            <option value="{{activity.id}}">{{activity.description}}</option>
+            <option value="{{activity.id}}">{{activity.description}}, {{activity.date}}</option>
             {% endfor %}
         </select>
     </div>

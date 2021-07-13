@@ -4,16 +4,18 @@
 
 <section class="view">
 
-<p>Name: {{member.first_name}} {{member.last_name}}</p>
-<p>Premium membership: {{member.premium}}</p>
+    <h2>{{member.first_name}} {{member.last_name}}</h2>
 
-<p><a href="/members/{{member.id}}/edit">Edit</a></p>
+    <p>ID: {{member.id}}</p>
+    <p>Premium membership: {{member.premium}}</p>
 
-<form action="/members/{{member.id}}/delete" method="POST">
-    <button type="submit">Delete</button>
-</form>
+    <p><a href="/members/{{member.id}}/edit">Edit</a></p>
 
-<h3>Booked activities</h3>
+    <form action="/members/{{member.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+
+    <h3>Booked activities</h3>
 
     <table>
         <tr>

@@ -1,6 +1,10 @@
+{% extends "base.html" %}
+
 {% block content %}
 
 <form class="input_form" action="/activities" method="POST">
+
+    <h2>Add Activity</h2>
 
     <div>
         <label for="description">Enter description:</label>
@@ -9,7 +13,7 @@
 
     <div>
         <label for="capacity">Enter capacity:</label>
-        <input type="number" min="0" name="capacity" id="capacity">
+        <input type="number" min="1" name="capacity" id="capacity">
     </div>
 
     <div>

@@ -1,0 +1,42 @@
+.index table {
+    table-layout: fixed;
+    width: 100%;
+    border: solid black;
+    border-collapse: collapse;
+    color: blanchedalmond;
+    background-color: black;
+}
+
+.index table thead {
+    border-collapse: collapse;
+    border: solid blanchedalmond;
+}
+
+.index table th {
+    border-collapse: collapse;
+}
+
+.index table th, td {
+    padding: 2vh;
+    text-align: center;
+}
+
+.index table tbody:nth-child(odd) {
+  background-color: darkgrey;
+}
+
+.index table tbody:nth-child(even) {
+  background-color: grey;
+}
+
+.index a {
+    text-decoration: none;
+    color: blanchedalmond;
+    border: solid blanchedalmond;
+    margin: 3vh;
+    padding: 1vh;
+}
+
+.index a:hover {
+    color: black;
+}

@@ -4,6 +4,8 @@
 
 <form class="input_form" action="/activities/{{activity.id}}" method="POST">
 
+    <h2>Edit Activity</h2>
+
     <div>
         <label for="description">Enter description:</label>
         <input type="text" name="description" id="description" value="{{activity.description}}">
@@ -11,7 +13,7 @@
 
     <div>
         <label for="capacity">Enter capacity:</label>
-        <input type="number" min="0" name="capacity" id="capacity" value="{{activity.capacity}}">
+        <input type="number" min="1" name="capacity" id="capacity" value="{{activity.capacity}}">
     </div>
 
     <div>

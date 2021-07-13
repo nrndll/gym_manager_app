@@ -4,20 +4,22 @@
 
 <section class="view">
 
-<p>Activity: {{activity.description}}</p>
-<p>Maximum capacity: {{activity.capacity}}</p>
-<p>Premium activity: {{activity.premium}}</p>
-<p>Date: {{activity.date}}</p>
-<p>Time: {{activity.time}}</p>
-<p>Places available: {{places_available}}</p>
+    <h2>{{activity.description}}</h2>
 
-<p><a href="/activities/{{activity.id}}/edit">Edit</a></p>
+    <p>Activity Number: {{activity.id}}</p>
+    <p>Maximum Capacity: {{activity.capacity}}</p>
+    <p>Premium Activity: {{activity.premium}}</p>
+    <p>Date: {{activity.date}}</p>
+    <p>Time: {{activity.time}}</p>
+    <p>Places Available: {{places_available}}</p>
 
-<form action="/activities/{{activity.id}}/delete" method="POST">
-    <button type="submit">Delete</button>
-</form>
+    <p><a href="/activities/{{activity.id}}/edit">Edit</a></p>
 
-<h3>Booked members</h3>
+    <form action="/activities/{{activity.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+
+    <h3>Booked members</h3>
 
     <table>
         <tr>

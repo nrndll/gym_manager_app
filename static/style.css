@@ -1,0 +1,41 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: auto;
+    background-image: url("/static/images/arnold-schwarzenegger-pumping-iron-ss03.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body h1, h2 {
+    border: solid blanchedalmond;
+    color: blanchedalmond;
+    background-color: black;
+    padding: 1vh;
+    text-align: center;
+    letter-spacing: 1vh;
+}
+
+body header h1 {
+    flex: 3;
+}
+
+body header nav {
+    flex: auto;
+}
+
+body ul {
+    list-style: none;
+}
+
+body ul li a {
+    text-decoration: none;
+    margin: 3vh;
+    padding: 1vh;
+    text-transform: uppercase;
+    color: blanchedalmond;
+    border: solid blanchedalmond;
+}
+
+body ul li a:hover {
+    background-color: black;
+}
