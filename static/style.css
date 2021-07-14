@@ -42,6 +42,11 @@ body ul li a:hover {
     background-color: darkgrey;
 }
 
+.index h3 {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
 .index p {
     display: flex;
     justify-content: center;

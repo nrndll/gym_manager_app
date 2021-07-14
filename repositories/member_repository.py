@@ -78,4 +78,3 @@ def already_member(member):
 def capitalise_names(member):
     member.first_name = member.first_name.capitalize()
     member.last_name = member.last_name.capitalize()
-    return member
