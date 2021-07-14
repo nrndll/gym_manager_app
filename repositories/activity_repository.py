@@ -3,6 +3,7 @@ from models.activity import Activity
 from models.member import Member
 
 def add(activity):
+    capitalise(activity)
     if already_activity(activity) == False:
         sql = "INSERT INTO activities (description, capacity, premium, date, time) VALUES (%s, %s, %s, %s, %s) RETURNING id"
         values = [activity.description, activity.capacity, activity.premium, activity.date, activity.time]
@@ -79,3 +80,6 @@ def already_activity(activity):
         if result.description == activity.description and result.date == activity.date and result.time == activity.time:
             activity_exists = True
     return activity_exists
+
+def capitalise(activity):
+    activity.description = activity.description.capitalize()

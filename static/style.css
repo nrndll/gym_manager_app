@@ -6,7 +6,7 @@ body {
     background-repeat: no-repeat;
 }
 
-body h1, h2 {
+body h1, h2, h3 {
     border: solid blanchedalmond;
     color: blanchedalmond;
     background-color: black;
@@ -45,6 +45,7 @@ body ul li a:hover {
 .index p {
     display: flex;
     justify-content: center;
+    color: blanchedalmond;
 }
 
 .index p a {
@@ -78,4 +79,14 @@ body ul li a:hover {
 
 #home h2 {
     margin-bottom: 10vh;
+}
+
+.error {
+    color: blanchedalmond;
+    letter-spacing: 0.5vh;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    border: solid blanchedalmond;
+    margin: 20vh;
 }

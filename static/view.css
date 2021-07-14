@@ -1,0 +1,50 @@
+.view h3 {
+  margin-bottom: -2vh;  
+}
+
+.view p {
+    color: blanchedalmond;
+    letter-spacing: 0.5vh;
+    display: flex;
+    justify-content: center;
+}
+
+.detail {
+    background-color: black;
+    border: solid blanchedalmond;
+    margin-bottom: 5vh;
+}
+
+.detail form {
+    display: flex;
+    justify-content: center;
+}
+
+/* .detail button {
+    text-decoration: none;
+    margin: 2vh;
+    padding: 1vh;
+    text-transform: uppercase;
+    color: blanchedalmond;
+    border: solid blanchedalmond;
+    background-color: black;
+}
+
+.detail button:hover {
+    background-color: darkgrey;
+} */
+
+.detail p a {
+    text-decoration: none;
+    margin: 2vh;
+    padding: 1vh;
+    text-transform: uppercase;
+    color: blanchedalmond;
+    border: solid blanchedalmond;
+    background-color: black;
+    letter-spacing: 0vh;
+}
+
+.detail p a:hover {
+    background-color: darkgrey;
+}

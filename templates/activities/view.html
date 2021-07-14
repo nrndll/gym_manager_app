@@ -6,28 +6,34 @@
 
     <h2>{{activity.description}}</h2>
 
-    <p>Activity Number: {{activity.id}}</p>
-    <p>Maximum Capacity: {{activity.capacity}}</p>
-    <p>Premium Activity: {{activity.premium}}</p>
-    <p>Date: {{activity.date}}</p>
-    <p>Time: {{activity.time}}</p>
-    <p>Places Available: {{places_available}}</p>
+    <div class="detail">
+        <p>Activity Number: {{activity.id}}</p>
+        <p>Maximum Capacity: {{activity.capacity}}</p>
+        <p>Premium Activity: {{activity.premium}}</p>
+        <p>Date: {{activity.date}}</p>
+        <p>Time: {{activity.time}}</p>
+        <p>Places Available: {{places_available}}</p>
 
-    <p><a href="/activities/{{activity.id}}/edit">Edit</a></p>
+        <p><a href="/activities/{{activity.id}}/edit">Edit</a></p>
 
-    <form action="/activities/{{activity.id}}/delete" method="POST">
-        <button type="submit">Delete</button>
-    </form>
+        <form action="/activities/{{activity.id}}/delete" method="POST">
+            <button class="button" type="submit">Delete</button>
+        </form>
 
-    <h3>Booked members</h3>
+        <h3>Booked members</h3>
+    </div>
+</section>
 
+<section class="index">
     <table>
-        <tr>
-            <th>Member ID</th>
-            <th>Name</th>
-            <th>Premium</th>
-        </tr>
-    
+        <thead>
+            <tr>
+                <th>Member ID</th>
+                <th>Name</th>
+                <th>Premium</th>
+            </tr>
+        </thead>
+        <tbody>
         {% for member in members %}
         <tr>
             <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
@@ -35,9 +41,8 @@
             <td>{{member.premium}}</td>
         </tr>
         {% endfor %}
-    
+        </tbody>
     </table>
-
 </section>
 
 {% endblock %}

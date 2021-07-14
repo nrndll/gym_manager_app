@@ -4,6 +4,7 @@ from models.activity import Activity
 import pdb
 
 def add(member):
+    capitalise_names(member)
     if already_member(member) == False:
         sql = "INSERT INTO members (first_name, last_name, premium) VALUES (%s, %s, %s) RETURNING id"
         values = [member.first_name, member.last_name, member.premium]
@@ -63,3 +64,18 @@ def already_member(member):
         if result.first_name == member.first_name and result.last_name == member.last_name:
             is_member = True
     return is_member
+
+# def already_member(member):
+#     sql = "SELECT COUNT(*) FROM members WHERE (first_name, last_name) = VALUES (%s, %s)"
+#     values = [member.first_name, member.last_name]
+#     pdb.set_trace()
+#     result = run_sql(sql, values)
+#     if result[0] is not None:
+#         return True
+#     else:
+#         return False
+
+def capitalise_names(member):
+    member.first_name = member.first_name.capitalize()
+    member.last_name = member.last_name.capitalize()
+    return member

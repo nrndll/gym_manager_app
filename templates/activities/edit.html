@@ -2,40 +2,40 @@
 
 {% block content %}
 
-<form class="input_form" action="/activities/{{activity.id}}" method="POST">
+<h2>Edit Activity</h2>
 
-    <h2>Edit Activity</h2>
+<form class="form" action="/activities/{{activity.id}}" method="POST">
 
-    <div>
-        <label for="description">Enter description:</label>
-        <input type="text" name="description" id="description" value="{{activity.description}}">
+    <div class="flex">
+        <label class="label" for="description">Enter description:</label>
+        <input class="input" type="text" name="description" id="description" value="{{activity.description}}">
     </div>
 
-    <div>
-        <label for="capacity">Enter capacity:</label>
-        <input type="number" min="1" name="capacity" id="capacity" value="{{activity.capacity}}">
+    <div class="flex">
+        <label class="label" for="capacity">Enter capacity:</label>
+        <input class="input" type="number" min="1" name="capacity" id="capacity" value="{{activity.capacity}}">
     </div>
 
-    <div>
-        <label for="premium">Premium activity:</label>
-        <select name="premium" id="premium">
+    <div class="flex">
+        <label class="label" for="premium">Premium activity:</label>
+        <select class="select" name="premium" id="premium">
             <option value="True" {% if activity.premium %} selected {% endif %}>True</option>
             <option value="False" {% if activity.premium == False %} selected {% endif %}>False</option>
         </select>
     </div>
 
-    <div>
-        <label for="date">Date:</label>
-        <input type="date" name="date" id="date" value="{{activity.date}}">
+    <div class="flex">
+        <label class="label" for="date">Date:</label>
+        <input class="input" type="date" name="date" id="date" value="{{activity.date}}">
     </div>
     
-    <div>
-        <label for="time">Time:</label>
-        <input type="time" name="time" id="time" value="{{activity.time}}">
+    <div class="flex">
+        <label class="label" for="time">Time:</label>
+        <input class="input" type="time" name="time" id="time" value="{{activity.time}}">
     </div>
 
-    <div>
-        <button type="submit">Enter</button>
+    <div class="flex">
+        <button class="button" type="submit">Enter</button>
     </div>
 
 </form>

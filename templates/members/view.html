@@ -2,42 +2,46 @@
 
 {% block content %}
 
-<section class="index view">
-
+<section class="view">
+ 
     <h2>{{member.first_name}} {{member.last_name}}</h2>
 
-    <p>ID: {{member.id}}</p>
-    <p>Premium membership: {{member.premium}}</p>
-
-    <p><a href="/members/{{member.id}}/edit">Edit</a></p>
-
-    <form action="/members/{{member.id}}/delete" method="POST">
-        <button class="button" type="submit">Delete</button>
-    </form>
+    <div class="detail">
+        <p>ID: {{member.id}}</p>
+        <p>Premium membership: {{member.premium}}</p>
+        <p><a href="/members/{{member.id}}/edit">Edit</a></p>
+        <form action="/members/{{member.id}}/delete" method="POST">
+            <button class="button" type="submit">Delete</button>
+        </form>
+    </div>
 
     <h3>Booked activities</h3>
+</section>
 
+<section class="index">
     <table>
-        <tr>
-            <th>Activity ID</th>
-            <th>Description</th>
-            <th>Capacity</th>
-            <th>Premium</th>
-            <th>Date</th>
-            <th>Time</th>
-        </tr>
-    
-        {% for activity in activities %}
-        <tr>
-            <td><a href="/activities/{{activity.id}}">{{activity.id}}</a></td>
-            <td>{{activity.description}}</td>
-            <td>{{activity.capacity}}</td>
-            <td>{{activity.premium}}</td>
-            <td>{{activity.date}}</td>
-            <td>{{activity.time}}</td>
-        </tr>
-        {% endfor %}
-
+        <thead>
+            <tr>
+                <th>Activity ID</th>
+                <th>Description</th>
+                <th>Capacity</th>
+                <th>Premium</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in activities %}
+            <tr>
+                <td><a href="/activities/{{activity.id}}">{{activity.id}}</a></td>
+                <td>{{activity.description}}</td>
+                <td>{{activity.capacity}}</td>
+                <td>{{activity.premium}}</td>
+                <td>{{activity.date}}</td>
+                <td>{{activity.time}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
 </section>
 
 {% endblock %}

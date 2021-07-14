@@ -2,43 +2,43 @@
 
 {% block content %}
 
-<form class="input_form" action="/activities" method="POST">
+<h2>Add Activity</h2>
 
-    <h2>Add Activity</h2>
+<form class="form" action="/activities" method="POST">
 
-    <div>
-        <label for="description">Enter description:</label>
-        <input type="text" name="description" id="description">
+    <div class="flex">
+        <label class="label" for="description">Enter description:</label>
+        <input class="input" type="text" name="description" id="description">
     </div>
 
-    <div>
-        <label for="capacity">Enter capacity:</label>
-        <input type="number" min="1" name="capacity" id="capacity">
+    <div class="flex">
+        <label class="label" for="capacity">Enter capacity:</label>
+        <input class="input" type="number" min="1" name="capacity" id="capacity">
     </div>
 
-    <div>
-        <label for="premium">Premium activity:</label>
-        <select name="premium" id="premium">
+    <div class="flex">
+        <label class="label" for="premium">Premium activity:</label>
+        <select class="select" name="premium" id="premium">
             <!-- <option value="" disabled selected></option> -->
             <option value="True">True</option>
             <option value="False" selected>False</option>
         </select>
     </div>
 
-    <div>
-        <label for="date">Date:</label>
-        <input type="date" name="date" id="date">
+    <div class="flex">
+        <label class="label" for="date">Date:</label>
+        <input class="input" type="date" name="date" id="date">
     </div>
 
-    <div>
-        <label for="time">Time:</label>
-        <input type="time" name="time" id="time">
+    <div class="flex">
+        <label class="label" for="time">Time:</label>
+        <input class="input" type="time" name="time" id="time">
     </div>
 
-    <div>
-        <button type="submit">Enter</button>
+    <div class="flex">
+        <button class="button" type="submit">Enter</button>
     </div>
-
+    
 </form>
 
 {% endblock %}

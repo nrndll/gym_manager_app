@@ -2,30 +2,30 @@
 
 {% block content %}
 
-<form class="input_form" action="/bookings" method="POST">
+<h2>Add Booking</h2>
 
-    <h2>Add Booking</h2>
+<form class="form" action="/bookings" method="POST">
 
-    <div>
-        <label for="member">Select member:</label>
-        <select name="member_id" id="member">
+    <div class="flex">
+        <label class="label" for="member">Select member:</label>
+        <select class="select" name="member_id" id="member">
             {% for member in members %}
-            <option value="{{member.id}}">{{member.last_name}}, {{member.first_name}}</option>
+            <option value="{{member.id}}">{{member.last_name}}, {{member.first_name}}, Prem: {{member.premium}}</option>
             {% endfor %}
         </select>
     </div>
 
-    <div>
-        <label for="activity">Select activity:</label>
-        <select name="activity_id" id="activity">
+    <div class="flex">
+        <label class="label" for="activity">Select activity:</label>
+        <select class="select" name="activity_id" id="activity">
             {% for activity in activities %}
-            <option value="{{activity.id}}">{{activity.description}}, {{activity.date}}</option>
+            <option value="{{activity.id}}">{{activity.description}}, {{activity.date}}, Prem: {{activity.premium}}</option>
             {% endfor %}
         </select>
     </div>
 
-    <div>
-        <button type="submit">Enter</button>
+    <div class="flex">
+        <button class="button" type="submit">Enter</button>
     </div>
 
 </form>

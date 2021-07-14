@@ -4,15 +4,18 @@
 
 <section class="view">
 
-<h2>Booking number: {{booking.id}}</h2>
+    <h2>Booking number: {{booking.id}}</h2>
 
-<p>Member: <a href="/members/{{booking.member.id}}">{{booking.member.first_name}} {{booking.member.last_name}}</a></p>
-<p>Activity: <a href="/activities/{{booking.activity.id}}">{{booking.activity.description}}</a></p>
+    <div class="detail">
+        <!-- <p>Member: <a href="/members/{{booking.member.id}}">{{booking.member.first_name}} {{booking.member.last_name}}</a></p>
+        <p>Activity: <a href="/activities/{{booking.activity.id}}">{{booking.activity.description}}</a></p> -->
+                <p>Member: {{booking.member.first_name}} {{booking.member.last_name}}</p>
+                <p>Activity: {{booking.activity.description}}</p>
 
-<form action="/bookings/{{booking.id}}/delete" method="POST">
-    <button type="submit">Delete</button>
-</form>
-
+        <form action="/bookings/{{booking.id}}/delete" method="POST">
+            <button class="button" type="submit">Delete</button>
+        </form>
+    </div>
 </section>
 
 {% endblock %}
