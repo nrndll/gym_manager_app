@@ -4,7 +4,8 @@
     background-color: black;
     margin-top: 10vh;
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
+    margin: auto;
 }
 
 .form div {
