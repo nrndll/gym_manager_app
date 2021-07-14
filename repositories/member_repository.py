@@ -57,23 +57,22 @@ def activities(member):
         activities.append(activity)
     return activities
 
-def already_member(member):
-    results = select_all()
-    is_member = False
-    for result in results:
-        if result.first_name == member.first_name and result.last_name == member.last_name:
-            is_member = True
-    return is_member
-
 # def already_member(member):
-#     sql = "SELECT COUNT(*) FROM members WHERE (first_name, last_name) = VALUES (%s, %s)"
-#     values = [member.first_name, member.last_name]
-#     pdb.set_trace()
-#     result = run_sql(sql, values)
-#     if result[0] is not None:
-#         return True
-#     else:
-#         return False
+#     results = select_all()
+#     is_member = False
+#     for result in results:
+#         if result.first_name == member.first_name and result.last_name == member.last_name:
+#             is_member = True
+#     return is_member
+
+def already_member(member):
+    sql = "SELECT COUNT(*) FROM members WHERE (first_name, last_name) = (%s, %s)"
+    values = [member.first_name, member.last_name]
+    result = run_sql(sql, values)
+    if result[0][0] > 0:
+        return True
+    else:
+        return False
 
 def capitalise_names(member):
     member.first_name = member.first_name.capitalize()

@@ -73,10 +73,19 @@ def space_for_booking(activity):
     else:
         return False
 
+# def already_activity(activity):
+#     results = select_all()
+#     activity_exists = False
+#     for result in results:
+#         if result.description == activity.description and result.date == activity.date and result.time == activity.time:
+#             activity_exists = True
+#     return activity_exists
+
 def already_activity(activity):
-    results = select_all()
-    activity_exists = False
-    for result in results:
-        if result.description == activity.description and result.date == activity.date and result.time == activity.time:
-            activity_exists = True
-    return activity_exists
+    sql = "SELECT COUNT(*) FROM activities WHERE (description, date, time) = (%s, %s, %s)"
+    values = [activity.description, activity.date, activity.time]
+    result = run_sql(sql, values)
+    if result[0][0] > 0:
+        return True
+    else:
+        return False

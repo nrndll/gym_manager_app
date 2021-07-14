@@ -62,10 +62,19 @@ def delete(id):
     value = [id]
     run_sql(sql, value)
 
+# def already_booked(booking):
+#     results = select_all()
+#     booking_exists = False
+#     for result in results:
+#         if result.member.id == booking.member.id and result.activity.id == booking.activity.id:
+#             booking_exists = True
+#     return booking_exists
+
 def already_booked(booking):
-    results = select_all()
-    booking_exists = False
-    for result in results:
-        if result.member.id == booking.member.id and result.activity.id == booking.activity.id:
-            booking_exists = True
-    return booking_exists
+    sql = "SELECT COUNT(*) FROM bookings WHERE (member_id, activity_id) = (%s, %s)"
+    values = [booking.member.id, booking.activity.id]
+    result = run_sql(sql, values)
+    if result[0][0] > 0:
+        return True
+    else:
+        return False
