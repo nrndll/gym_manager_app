@@ -35,11 +35,11 @@
         </thead>
         <tbody>
         {% for member in members %}
-        <tr>
-            <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
-            <td>{{member.last_name}}, {{member.first_name}}</td>
-            <td>{{member.premium}}</td>
-        </tr>
+            <tr>
+                <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
+                <td>{{member.last_name}}, {{member.first_name}}</td>
+                <td>{{member.premium}}</td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>

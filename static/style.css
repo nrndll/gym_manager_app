@@ -95,3 +95,15 @@ body ul li a:hover {
     border: solid blanchedalmond;
     margin: 20vh;
 }
+
+footer {
+    margin: auto;
+    color: blanchedalmond;
+    border: solid blanchedalmond;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

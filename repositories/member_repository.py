@@ -1,7 +1,6 @@
 from db.run_sql import run_sql
 from models.member import Member
 from models.activity import Activity
-import pdb
 
 def add(member):
     capitalise_names(member)
